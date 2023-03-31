@@ -10,13 +10,13 @@ public class Main extends Application {
 //Application 기본으로 생성된 Application(기본으로 내재된 class) class를 상속한다 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("heart.fxml"));
 		//heart.fxml 파일의 FXML파일을 가져오는 공식이다
 		Parent regForm = loader.load();
 		Service sc = new Service();
 		//sc라는 객체를 Main클래스에 만든다. Service 클래스에 함수를 사용가능하다
 		//상속으로도 다른 클래스의 함수를 사용가능하다. 하지만 다중상속이 안되기 때문에 객체로 클래스를 불러온다
-		
 		
 		Scene scene = new Scene(regForm);
 		primaryStage.setTitle("회원가입 화면");

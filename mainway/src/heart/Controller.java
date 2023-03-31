@@ -3,7 +3,10 @@ package heart;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 
 //Controller 라는 클래스를 만들어서 scene builder에서 작성한 UI와 연결한다
 //여기서 scene builder에서 설정한 event(마우스로 클릭할 때 발생하는 것)를 정의해야 한다
@@ -14,42 +17,38 @@ public class Controller  implements Initializable{
 	//interface는 class가 아니다 그러나 다중상속이 가능하기 때문에 사용한다 (implements를 사용)
 	//Initializable은 내제된 interface이다 추상 method이기 때문에 @Override로 재정의 해줘야한다
 	private Service service;
-	
+	private Heartdto heart;
+	//자료형을 지정해주면서 변수 선언 ex)int a
+
+	@FXML
+    private RadioButton button;
+
+	// 좋아요 버튼 정의
+    @FXML
+   public void updateHeart1(ActionEvent event) {
+    	heart = new Heartdto();
+    	heart.setH_number(2); // PK 값이 2인 경우 
+    	heart.setM_number(10); // 회원 정보가 10인 회원인 경우
+    	heart.setMenu_number(100); // 메뉴 번호가 100번인 메뉴인 경우
+    	if(!button.isSelected()) {
+    		heart.setheart_num(0);   		
+    		service.updateHeart2(heart);
+    	} else {
+    		heart.setheart_num(1);
+    		service.updateHeart1(heart);
+    	}
+    }
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+	//추상 메소드이다 이걸 재정의 해줘야 함
+	//initialize라는 함수를 쓰려면 initialize의 함수를 정의하고 내용도 채워놔야 하는데
+	//이미 이클립스에 내장되어 있어서 인터페이스로 내장된 함수를 불러와서 재정의(Override)해주면 그냥 쓸 수 있음
 		service = new Service();
+	//함수를 재정의 해주는 게 Override인데 구체화 해준다는 의미이다(구현한다)
 	}
+
+
 	
-	// 좋아요 추가 기능 정의
-	public void updateHeart1 () {
-	// 반환 값이 없는 updateHeart1 매소드를 정의한다
-		System.out.println("좋아요");
-	// event가 작동하는지 확인하기 위해 썼다
-		Heartdto heart = new Heartdto();
-	// Class를 자료형으로 사용할 수 있다 int, long 이런거만 자료형이 아님
-	// Heartdto 클래스의 함수를 사용할 수 있는 heart 라는 공간을 Heartdto 디폴트 생성자로 만든다
-	// 생성자의 입력 항목이 없고 생성자 내부에 아무 내용이 없는 위와 같은 생성자를 디폴트 생성자라고 부른다.
-		heart.setH_number(4);
-	// 위에서 만든 heart라는 공간에 H_number pk의 4번째에 데이터를 넣는다 
-	// 단! db랑 연동된 것은 아직 아님
-		heart.setheart_num(0);
-	// pk의 4번째인데 heart_num(좋아요를 저장하기로 한 column)에 데이터를 넣는다
-		service.updateHeart1(heart);
-	//서비스 클래스의 updateHeart1 함수에 위에서 heart 변수에 입력한 데이터를 전달한다
-	}
 	
-	// 좋아요 삭제 기능 정의
-	public void updateHeart2 () {
-	// 반환 값이 없는 updateHeart2 함수를 정의한다
-		System.out.println("좋아요취소");
-		Heartdto heart = new Heartdto();
-	// 디폴트 생성자 Heartdto로 Heartdto 클래스의 함수를 쓸 수 있는 heart 공간(객체)생성
-		heart.setH_number(4);
-	// heart 공간에 pk의 4번째 좌표에 데이터를 넣는다 
-		heart.setheart_num(0);
-	// heart 공간에 pk의 4번째 좌표의 heart_num column에 데이터를 넣는다
-		service.updateHeart2(heart);
-	// service 클래스의 updateHeart2 함수에 heart 데이터를 전달한다
-	
-	}	
 }

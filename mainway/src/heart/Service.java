@@ -1,7 +1,10 @@
 package heart;
 
+import member.LoginDAO;
+
 public class Service {
 	Heartdao heartDao = new Heartdao();
+	
   // heart라는 매개변수는 Heartdto 자료형으로 받았다
   // 왜? Heartdto로 controller class에서 정의를 했기 때문에
   // 하지만 heartDao 객체 자료형은 Heartdao 생성했다!!
@@ -43,5 +46,7 @@ public class Service {
 		
 	}
 
+	
+	
 	
 }

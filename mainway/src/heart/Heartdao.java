@@ -6,8 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 public class Heartdao {
 	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs; 
  //db와 연결해주는 기능을 한다
 	
 	public Heartdao() {
@@ -51,6 +55,38 @@ public class Heartdao {
 		return ++maxNum;
 			// select 조회니까 return 값이 있다
 	}
+	public void selectuser(Heartdto heart) {
+		String sql = "SELECT menu_number, m_number FROM heart_table WHERE H_number = ?";
+		//조건을 걸어주는 게 ? 이다 pk가 몇인 행의 회원넘버와 메뉴 넘버값을 가져올지 정하는거다
+		PreparedStatement ps = null;
+		//ps객체 생성 자료형은 preparedStatement(여기 함수를 사용할 수 있음)
+		ResultSet rs = null;
+		//rs객체 생성 자료형은 ResultSet 여기 함수 사용할 수 있음
+		try {
+		ps = con.prepareStatement(sql);
+		//db랑 연결해서 prepareStatement 함수로 sql문 실행 한걸 ps에 저장 
+			ps.setLong(1, heart.getH_number());
+		//heart에 담겨있는 정보(table 전체정보)중에서 H_number 자료를 꺼내서 ps에 넣는다
+		rs = ps.executeQuery();
+		//ps의 쿼리문을 실행하고 rs에 넣는다
+		if(rs.next()) {
+		//rs.next rs에 값이 있는지 확인하는 매소드
+		//만약 rs.next rs에 값이 있는지 확인한다 없으면 아무것도 안함 else 안썼음
+		Long box1 = rs.getLong("menu_number");
+		Long box2 = rs.getLong("m_number");
+		//long형의 box1공간을 만들어서 rs에 담긴 칼럼 값을 넣는다
+		//getlong의 기능 : ()안에 칼럼의 값을 가져온다
+				
+		}
+		} catch (Exception e) {
+			e.printStackTrace();		
+		}
+			
+			
+		
+		}
+	
+	
 	
 	public void updateHeart1(Heartdto heart) {
 		String sql = "UPDATE heart_table SET heart_num=heart_num+1 WHERE h_number=?";
@@ -68,8 +104,6 @@ public class Heartdao {
 		}
 		
 	}
-	
-	
 	public void updateHeart2(Heartdto heart) {
 		String sql = "UPDATE heart_table SET heart_num=heart_num-1 WHERE h_number=?";
 		PreparedStatement ps = null;
@@ -82,5 +116,25 @@ public class Heartdao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}	
+	
+	public void insertHeart(Heartdto heart) {
+		String sql = "INSERT INTO heart_table VALUES(?,?,?,?)";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+		
+		ps = con.prepareStatement(sql);
+			ps.setLong(1, heart.getH_number());
+			ps.setLong(2, heart.getMenu_number());
+			ps.setLong(3, heart.getM_number());
+			ps.setLong(4, heart.getheart_num());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
+
+	
 }
