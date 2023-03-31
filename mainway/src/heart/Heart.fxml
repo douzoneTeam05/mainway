@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="heart.Controller">
+   <children>
+      <TextField layoutX="272.0" layoutY="190.0" prefHeight="119.0" prefWidth="345.0" text="스테이크 &amp; 치즈">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </TextField>
+      <VBox layoutX="869.0" layoutY="325.0" prefHeight="283.0" prefWidth="171.0">
+         <children>
+            <Button fx:id="updateHeart1" mnemonicParsing="false" prefHeight="164.0" prefWidth="250.0" text="좋아요" textFill="#0d0505">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateHeart2" mnemonicParsing="false" prefHeight="156.0" prefWidth="178.0" text="취소">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="111.0" fitWidth="502.0" layoutX="324.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/KakaoTalk_20230329_141421990.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="294.0" fitWidth="511.0" layoutX="199.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/스테이크%20자른거.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
