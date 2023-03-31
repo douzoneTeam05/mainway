@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="45.0" fitWidth="200.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/subway.jpg" />
+                  <Image url="@../img/mainwaylogo.png" />
                </image>
             </ImageView>
          </children>
@@ -35,7 +35,7 @@
          <children>
             <ImageView fitHeight="50.0" fitWidth="50.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/identifier.png" />
+                  <Image url="@../img/identifier.png" />
                </image>
             </ImageView>
             <TextField fx:id="id" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="id" translateX="10.0" />
@@ -45,7 +45,7 @@
          <children>
             <ImageView fitHeight="50.0" fitWidth="50.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/password.png" />
+                  <Image url="@../img/password.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="pw" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="passowrd" translateX="10.0" />
