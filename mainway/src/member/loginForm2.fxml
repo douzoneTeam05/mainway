@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -51,13 +50,7 @@
             <PasswordField fx:id="pw" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="passowrd" translateX="10.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="70.0" prefWidth="200.0">
-         <children>
-            <RadioButton fx:id="idSave" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="아이디 저장" />
-            <RadioButton fx:id="pwSave" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="비밀번호 저장" textAlignment="CENTER" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="90.0" prefWidth="200.0">
+      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginProc" prefHeight="70.0" prefWidth="130.0" text="로그인">
                <font>
