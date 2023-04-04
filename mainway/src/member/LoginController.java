@@ -24,31 +24,37 @@ public class LoginController implements Initializable {
 		service = new LoginService();
 	}
 	
-	public void idSearchProc() {
-		
-	}
-	
-	public void pwSearchProc() {
-		
-	}
-	
 	public void loginProc() {
 		service.loginProc(id.getText(), pw.getText());
 		
-//		// 메뉴판 불러오기
-//		String result = service.loginCheck(id.getTesxt());
-//		if(result != null && result.equals("Y")) {
-//		opener.menuOpen();
-//		}
+		// 메뉴판 불러오기
+		String result = service.loginCheck(id.getText());
+		if(result != null && result.equals("Y")) {
+		opener.mainViewopen();
+		}
 	}
-	// public void idSearchProc() {
-	// }
-	
-	// public void pwSearchProc() {
-		
-	// }
 	
 	public void regProc () {
-		opener.regopen();
+		try {
+			opener.regopen();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void idSearchProc() {
+		try {
+			opener.idSearchOpen();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void pwSearchProc() {
+		try {
+			opener.pwSearchopen();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
