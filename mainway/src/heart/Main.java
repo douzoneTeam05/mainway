@@ -11,7 +11,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("heart.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Heart.fxml"));
 		//heart.fxml 파일의 FXML파일을 가져오는 공식이다
 		Parent regForm = loader.load();
 		Service sc = new Service();
@@ -19,7 +19,7 @@ public class Main extends Application {
 		//상속으로도 다른 클래스의 함수를 사용가능하다. 하지만 다중상속이 안되기 때문에 객체로 클래스를 불러온다
 		
 		Scene scene = new Scene(regForm);
-		primaryStage.setTitle("회원가입 화면");
+		primaryStage.setTitle("좋아요");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 

@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 public class CommonService {
 	
+	
 	public static void msg (String contentText) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText("알림");
