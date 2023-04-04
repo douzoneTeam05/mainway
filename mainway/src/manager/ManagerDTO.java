@@ -1,13 +1,13 @@
 package manager;
 
 public class ManagerDTO {
-	String manager_num;
+	int manager_num;
 	String id;
 	String pw;
-	public String getManager_num() {
+	public int getManager_num() {
 		return manager_num;
 	}
-	public void setManager_num(String manager_num) {
+	public void setManager_num(int manager_num) {
 		this.manager_num = manager_num;
 	}
 	public String getId() {
