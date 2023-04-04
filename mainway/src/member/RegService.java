@@ -6,18 +6,18 @@ public class RegService {
 		regDao.regStage(reg);
 	}
 
-	public void idOverlapStage(RegDTO idoverlap) {
+	public boolean idOverlapStage(String id) {
 		RegDAO iddao = new RegDAO();
-		iddao.idOverlapStage(idoverlap);
+		return iddao.idOverlapStage(id);
 	}
 	
-	public void nameOverlapStage(RegDTO nameoverlap) {
-		RegDAO namedao = new RegDAO();
-		namedao.nameOverlapStage(nameoverlap);
-	}
-	
-	public void emailOverlapStage(RegDTO emailoverlap) {
+	public boolean emailOverlapStage(String email) {
 		RegDAO emaildao = new RegDAO();
-		emaildao.emailOverlapStage(emailoverlap);
+		return emaildao.emailOverlapStage(email);
+	}
+	
+	public boolean phone_numOverlapStage(String phone) {
+		RegDAO phonedao = new RegDAO();
+		return phonedao.phone_numOverlapStage(phone);
 	}
 }
