@@ -19,6 +19,7 @@ public class Main extends Application {
 		
 		LoginController loginCon = loader.getController(); // LoginController 객체 생성
 		loginCon.Opener(opener); //opener룰 loginCon에 ?
+		
 		Scene scene = new Scene(loginForm2); //scenebuilder 출력
 		primaryStage.setTitle("로그인 화면"); //화면 이름
 		primaryStage.setScene(scene); //scenebuilder 출력
