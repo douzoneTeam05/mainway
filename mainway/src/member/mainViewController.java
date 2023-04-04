@@ -9,12 +9,16 @@ import javafx.scene.Parent;
 public class mainViewController implements Initializable {
 	
 	private MainViewService service;
+	private Parent mainview;
 	private Opener opener;
 	
-	public void Opener(Opener opener) {
+	public void Opener (Opener opener) {
 		this.opener = opener;
 	}
-	
+
+	public void setmainView(Parent mainview) {
+//		mainView = mainview;
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -33,10 +37,6 @@ public class mainViewController implements Initializable {
 	}
 	
 	public void memberProc () {
-		
-	}
-
-	public void setmainView(Parent mainview) {
 		
 	}
 }
