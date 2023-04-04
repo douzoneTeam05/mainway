@@ -75,6 +75,7 @@ public class Opener {
 	
 	//메인 화면 실행
 	public void mainViewopen() {
+		Stage mainViewStage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("mainView.fxml"));
 		Parent mainview = null;
 		
@@ -88,14 +89,14 @@ public class Opener {
 		MainViewCon.setmainView(mainview);
 		
 		Scene scene = new Scene(mainview);
-		primaryStage.setTitle("메인 화면");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		mainViewStage.setTitle("메인 화면");
+		mainViewStage.setScene(scene);
+		mainViewStage.show();
 	}
 	
 	//메뉴보기 화면
 	public void menuViewopen() {
-		Stage stage = 
+		Stage menuViewStage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("menuView.fxml"));
 		Parent menuview = null;
 		
@@ -105,10 +106,30 @@ public class Opener {
 			e.printStackTrace();
 		}
 		
+		menuViewController menuViewCon = loader.getController();
+		menuViewCon.setmenuView(menuview);
+		
 		Scene scene = new Scene(menuview);
-		primaryStage.setTitle("Menu List");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		menuViewStage.setTitle("Menu List");
+		menuViewStage.setScene(scene);
+		menuViewStage.show();
+		
+//		Stage pwSearchStage = new Stage();
+//		FXMLLoader loader = new FXMLLoader(getClass().getResource("pwSearch.fxml"));
+//		Parent pwsearch = null;
+//		try {
+//			pwsearch = loader.load();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		PwSearchController searchCon = loader.getController();
+//		searchCon.setpwSearch(pwsearch);
+//		
+//		Scene scene = new Scene(pwsearch);
+//		pwSearchStage.setTitle("비밀번호 찾기 화면");
+//		pwSearchStage.setScene(scene);
+//		pwSearchStage.show();
 	}
 	
 //	//회원 정보 관리 화면 실행
