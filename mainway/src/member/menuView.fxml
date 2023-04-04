@@ -20,7 +20,7 @@
       <Button mnemonicParsing="false" text="주문하기" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
-      <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#setListView" prefHeight="350.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
       <ImageView fx:id="imageView" fitHeight="350.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />

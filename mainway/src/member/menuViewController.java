@@ -1,11 +1,15 @@
 package member;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -13,9 +17,12 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class menuViewController implements Initializable {
+	String[] items;
 	@FXML private ListView<menuViewDTO> listView;
+	@FXML private ImageView imageView;
 	ObservableList<menuViewDTO> menu;
 	
 	private menuViewService service;
@@ -27,14 +34,25 @@ public class menuViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		service = new menuViewService();
-		setListView();
+		setListViewTest();
 	}
 	
-	public void setListView() {
+	public void setListView() throws FileNotFoundException { // 클릭이벤트
+		
 		menuViewDTO menudto = new menuViewDTO();
+		
+		menudto = listView.getSelectionModel().getSelectedItem();
+		System.out.println(menudto.getImage());
+		
+		// "/img/쉬림프.png"
+		Image image = new Image(getClass().getResourceAsStream(menudto.getImage()));
+		imageView.setImage(image);
+		
+	}
+	
+	public void setListViewTest() {
 		menu = (ObservableList<menuViewDTO>) service.menuViewStage();
 		listView.setItems(menu);
-		
 		listView.setCellFactory(listView -> new ListCell<menuViewDTO>() {
 		    private ImageView imageView = new ImageView();
 
@@ -44,14 +62,12 @@ public class menuViewController implements Initializable {
 
 		        if (empty || item == null || item.getName() == null) {
 		            setText(null);
-		            setGraphic(null);
 		        } else {
-		            setText(item.getMenu_num() + ". " + item.getName() + ", " + item.getExplain()
-		            		+ ", " + item.getPrice() + ", " + item.getCalory());
-//		            imageView.setImage(image);
-//		            setGraphic(imageView);
+		            setText(item.getMenu_num() + ". " + item.getName() + ", " +
+		            			item.getPrice() + "원");
 		        }
 		    }
 		});
 	}
+	
 }

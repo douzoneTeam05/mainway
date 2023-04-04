@@ -6,7 +6,14 @@ public class menuViewDTO {
 	private String explain;
 	private String price;
 	private String calory;
+	private String image;
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getMenu_num() {
 		return menu_num;
 	}

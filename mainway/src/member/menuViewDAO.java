@@ -42,6 +42,7 @@ public class menuViewDAO {
 				menudto.setExplain(rs.getString("explain"));
 				menudto.setPrice(String.valueOf(rs.getString("price")));
 				menudto.setCalory(String.valueOf(rs.getString("calory")));
+				menudto.setImage(rs.getString("image"));
 				obList.add(menudto);
 			}
 		} catch (Exception e) {
