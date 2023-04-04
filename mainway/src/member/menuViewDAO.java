@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 
 public class menuViewDAO {
-	
+	FXML // 이부분이랑 import 삭제해주세요!
 	Connection con;
 	
 	public menuViewDAO() {

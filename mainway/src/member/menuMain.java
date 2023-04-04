@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class menuMain extends Application {
-	
 	//로그인 화면 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
