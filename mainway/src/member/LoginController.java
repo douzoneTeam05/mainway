@@ -32,6 +32,7 @@ public class LoginController implements Initializable {
 		if(result != null && result.equals("Y")) {
 		opener.mainViewopen();
 		}
+		
 	}
 	
 	public void regProc () {
