@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javafx.scene.control.TextField;
 
@@ -123,6 +124,28 @@ public class ManagerDAO {
 		e.printStackTrace();
 	}
 		return loginCheck;
+	}
+
+	// 
+	public ArrayList<ManagerDTO> selectAllList() {
+		String sql = "SELECT * FROM managers ORDER BY manager_num";
+		ArrayList<ManagerDTO> managers = new ArrayList<>();
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ManagerDTO managerDto = new ManagerDTO();
+				managerDto.setManager_num(rs.getInt("manager_num"));
+				managerDto.setId(rs.getString("id"));
+				managerDto.setPw(rs.getString("pw"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("dao"+managers);
+		return managers;
 	}
 
 

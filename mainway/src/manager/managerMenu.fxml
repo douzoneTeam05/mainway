@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.ManagerController">
    <top>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -35,16 +35,21 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="100.0" spacing="20.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="회원 관리" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Font" size="18.0" />
-                     </font></Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="메뉴 관리" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#menuManage" prefHeight="70.0" prefWidth="321.0" text="메뉴 관리" textAlignment="CENTER">
                      <font>
                         <Font name="System Font" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="재료 관리" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="통계 관리" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Font" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="회원 관리" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Font" size="18.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#managerManage" prefHeight="70.0" prefWidth="321.0" text="관리자 계정 관리" textAlignment="CENTER">
                      <font>
                         <Font name="System Font" size="18.0" />
                      </font>

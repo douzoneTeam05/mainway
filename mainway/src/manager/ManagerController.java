@@ -3,15 +3,9 @@ package manager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 public class ManagerController implements Initializable{
-	@FXML TextField id;
-	@FXML PasswordField pw;
-	private ManagerService service;
 	private Opener opener;
 	
 	public void setOpener(Opener opener) {
@@ -19,30 +13,33 @@ public class ManagerController implements Initializable{
 	}
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		service = new ManagerService();
+	public void initialize(URL location, ResourceBundle resources) {		
 	}
-	// 로그인 버튼 
-	public void loginProc(){	
-		service.loginProc(id.getText(), pw.getText());
-		String result = service.loginCheck(id.getText());
-		if(result != null && result.equals("Y")) {
-			//로그인 화면의 Stage에 Menu.fxml 화면을 실행하겠다.
-			opener.menuOpen();
-		}
-		
-		/*
-		 LoginService Class를 생성하고, Method를 loginProc을 구현하세요.
-		 LoginDAO Class를 생성하고, Method를 LoginProc을 구현하세요.
-		 DAO는 데이터베이스 접근
-		 Service는 데이터(입력 값) 검증
-		 
-		 출력 : 로그인 성공 또는 실패 Alert를 출력하기
-		 Table Name : javaFx
-		 Column Name : id, pw, name, gender(성별), hobbys(취미)
-		 */
+	
+	// 메뉴 관리 버튼
+	public void menuManage() {
+		opener.menuManageOpen();
 	}
+	
+	
+	// 통계 관리 버튼(좋아요 기준으로  인기메뉴 뽑아내기, 상세페이지 뷰 카운트 기능 넣으면 조회수 높은 수 뽑을 수 있음, 주문 카운트 넣을 시 주 높은 순도 뽑을 수 있음)
 
+
+	
+	// 회원 관리 버튼(1. 회원 전체 조회)
+	public void memberManage() {
+//		opener.memberOpen();
+	}
+	
+	
+
+
+	
+	// 관리자 계정 관리 버튼
+	public void managerManage() {
+		opener.managerOpen();
+	}
+	
 
 
 }
