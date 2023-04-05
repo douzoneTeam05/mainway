@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+import common.Opener;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +24,7 @@ public class menuViewController implements Initializable {
 	
 	private menuViewService service;
 	private Parent menuView;
+	private Opener opener;
 	
 	public void setmenuView(Parent menuview) {
 		menuView = menuview;
@@ -63,5 +67,13 @@ public class menuViewController implements Initializable {
 		    }
 		});
 	}
-	
+
+	public void setOpener(Opener opener) {
+		this.opener = opener;
+	}
+	public void setMain(Opener opener) {
+		this.opener = opener;
+		
+	}
+
 }

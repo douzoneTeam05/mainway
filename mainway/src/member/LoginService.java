@@ -1,5 +1,7 @@
 package member;
 
+import common.CommonService;
+
 public class LoginService {
 	private LoginDAO dao;
 	

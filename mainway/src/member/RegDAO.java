@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import common.CommonService;
+
 public class RegDAO {
 	private Connection con;
 	
