@@ -3,12 +3,14 @@ package member;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import common.CommonService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class RegController implements Initializable {
 	@FXML TextField id;
@@ -24,6 +26,10 @@ public class RegController implements Initializable {
 	private RegService service;
 	private Parent RegForm;
 	
+	int idCheck = 0;
+	int emailCheck = 0;
+	int phoneCheck = 0;
+	
 	public void setRegForm(Parent regForm) {
 		RegForm = regForm;
 	}
@@ -35,40 +41,63 @@ public class RegController implements Initializable {
 	
 	//회원 가입 버튼
 	public void regProc() {
-		RegDTO reg = new RegDTO();
-		reg.setId(id.getText());
-		reg.setPw(pw.getText());
-		reg.setUser_name(user_name.getText());
-		reg.setBirth(birth.getText());
-		reg.setEmail(email.getText());
-		reg.setPhone_num(phone_num.getText());
 		
-		if(manRadio.isSelected()) {
-			reg.setGender("남");
-		} else if (womanRadio.isSelected()) {
-			reg.setGender("여");
+		if(idCheck > 0 && emailCheck > 0 && phoneCheck > 0 ) {
+			RegDTO reg = new RegDTO();
+			
+			if (pw.getText().isEmpty()) {
+				CommonService.msg("비밀번호를 입력하세요.");
+			} else if (birth.getText().isEmpty()) {
+				CommonService.msg("생년월일을 입력하세요.");
+			} else if (user_name.getText().isEmpty()) {
+				CommonService.msg("이름을 입력하세요.");
+			} else if (!manRadio.isSelected() && !womanRadio.isSelected()) {
+				CommonService.msg("성별을 체크하세요.");
+			} else {
+				reg.setId(id.getText());
+				reg.setPw(pw.getText());
+				reg.setUser_name(user_name.getText());
+				reg.setBirth(birth.getText());
+				reg.setEmail(email.getText());
+				reg.setPhone_num(phone_num.getText());
+				
+				if(manRadio.isSelected()) {
+					reg.setGender("남");
+				} else if (womanRadio.isSelected()) {
+					reg.setGender("여");
+				}
+				
+				service.regStage(reg);
+				CommonService.windowsClose(RegForm);
+			}
+			
+		} else if (idCheck == 0){
+			CommonService.msg("아이디 중복확인을 해주세요.");
+		} else if (emailCheck == 0) {
+			CommonService.msg("이메일 중복체크를 해주세요.");
+		} else if (phoneCheck == 0) {
+			CommonService.msg("전화번호 중복체크를 해주세요.");
 		}
-		
-		service.regStage(reg);
-		
-		CommonService.windowClose(RegForm);
 	}
 		
-	public void idOverlapProc() {
-		RegDTO idoverlap = new RegDTO();
-		idoverlap.setId(id.getText());
-		service.idOverlapStage(idoverlap);
+	public void idOverlapProc(MouseEvent event) {
+		idCheck = event.getClickCount();
+		if(!service.idOverlapStage(id.getText())) {
+			idCheck = 0;
+		}	
 	}
 	
-	public void nameOverlapProc() {
-		RegDTO nameoverlap = new RegDTO();
-		nameoverlap.setUser_name(user_name.getText());
-		service.nameOverlapStage(nameoverlap);
+	public void emailOverlapProc(MouseEvent event) {
+		emailCheck = event.getClickCount();
+		if (!service.emailOverlapStage(email.getText())) {
+			emailCheck = 0;
+		}
 	}
 	
-	public void emailOverlapProc() {
-		RegDTO emailoverlap = new RegDTO();
-		emailoverlap.setEmail(email.getText());
-		service.emailOverlapStage(emailoverlap);
+	public void phone_numOverlapProc(MouseEvent event) {
+		phoneCheck = event.getClickCount();
+		if (!service.phone_numOverlapStage(phone_num.getText())) {
+			phoneCheck = 0;
+		}
 	}
 }

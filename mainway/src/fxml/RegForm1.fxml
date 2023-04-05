@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.RegController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.RegController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="200.0">
+            <ImageView fitHeight="100.0" fitWidth="450.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/미니프로젝트/scenebuilderI/subway.jpg" />
+                  <Image url="@../img/mainwaylogo.png" />
                </image>
             </ImageView>
          </children>
@@ -27,18 +27,18 @@
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-10.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/identifier.png" />
+                  <Image url="@../img/identifier.png" />
                </image>
             </ImageView>
             <TextField fx:id="id" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="200.0" promptText="id" translateX="5.0" />
-            <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#idOverlapProc" prefHeight="20.0" text="아이디 중복확인" translateX="15.0" />
+            <Button maxHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#idOverlapProc" prefHeight="20.0" text="아이디 중복확인" translateX="15.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-75.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/password.png" />
+                  <Image url="@../img/password.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="pw" maxWidth="-Infinity" prefWidth="200.0" promptText="password" translateX="-60.0" />
@@ -48,18 +48,18 @@
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-10.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/identifier.png" />
+                  <Image url="@../img/identifier.png" />
                </image>
             </ImageView>
-            <TextField fx:id="user_name" maxWidth="-Infinity" prefWidth="200.0" promptText="nickname" translateX="5.0" />
-            <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#nameOverlapProc" prefHeight="20.0" text="닉네임 중복확인" translateX="15.0" />
+            <TextField fx:id="email" maxWidth="-Infinity" prefWidth="200.0" promptText="email" translateX="5.0" />
+            <Button mnemonicParsing="false" onMouseClicked="#emailOverlapProc" text="이메일 중복확인" translateX="15.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-75.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/identifier.png" />
+                  <Image url="@../img/identifier.png" />
                </image>
             </ImageView>
             <TextField fx:id="birth" maxWidth="-Infinity" prefWidth="200.0" promptText="birth" translateX="-60.0" />
@@ -67,24 +67,23 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-10.0">
+            <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-75.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/email.png" />
+                  <Image url="@../img/identifier.png" />
                </image>
             </ImageView>
-            <TextField fx:id="email" maxWidth="-Infinity" prefWidth="200.0" promptText="email" translateX="5.0" />
-            <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#emailOverlapProc" prefHeight="20.0" text="이메일 중복확인" translateX="15.0" />
+            <TextField fx:id="user_name" maxWidth="-Infinity" prefWidth="200.0" promptText="name" translateX="-60.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" translateX="-1.0">
                <image>
-                  <Image url="@../../../../../Users/namji/OneDrive/바탕%20화면/scenebuilderI/phone.png" />
+                  <Image url="@../img/phone.png" />
                </image>
             </ImageView>
             <TextField fx:id="phone_num" maxWidth="-Infinity" prefWidth="200.0" promptText="phone_num" translateX="11.0" />
-            <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#phone_numoverlapProc" prefHeight="20.0" text="전화번호 중복확인" translateX="24.0" />
+            <Button maxHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#phone_numOverlapProc" prefHeight="20.0" text="전화번호 중복확인" translateX="24.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">

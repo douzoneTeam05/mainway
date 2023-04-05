@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.LoginController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="200.0">
+            <ImageView fitHeight="100.0" fitWidth="450.0">
                <image>
                   <Image url="@../img/mainwaylogo.png" />
                </image>
@@ -51,15 +50,9 @@
             <PasswordField fx:id="pw" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="passowrd" translateX="10.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="70.0" prefWidth="200.0">
+      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <RadioButton maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="아이디 저장" />
-            <RadioButton maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="비밀번호 저장" textAlignment="CENTER" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="90.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="loginButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginProc" prefHeight="70.0" prefWidth="130.0" text="로그인">
+            <Button fx:id="signin" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginProc" prefHeight="70.0" prefWidth="130.0" text="로그인">
                <font>
                   <Font size="25.0" />
                </font>
@@ -68,10 +61,12 @@
       </HBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="80.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="idSearchButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#idSearchProc" prefHeight="30.0" prefWidth="120.0" text="아이디 찾기" />
-            <Button fx:id="idSearchButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pwSearchProc" prefHeight="30.0" prefWidth="120.0" text="비밀번호 찾기" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#idSearchProc" prefHeight="30.0" prefWidth="120.0" text="아이디 찾기" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pwSearchProc" prefHeight="30.0" prefWidth="120.0" text="비밀번호 찾기" />
             <Button fx:id="regButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#regProc" prefHeight="30.0" prefWidth="120.0" text="회원가입" />
          </children>
       </HBox>
+      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="450.0" />
+      <Button mnemonicParsing="false" onAction="#manageMode" text="manage" />
    </children>
 </VBox>
