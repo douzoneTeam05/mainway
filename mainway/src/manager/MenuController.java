@@ -5,9 +5,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import common.CommonService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -29,6 +31,8 @@ public class MenuController implements Initializable{
 	@FXML TextArea description;
 	@FXML TextField price;
 	@FXML TextField kcal;
+	@FXML TextField keyword;
+	@FXML Button searchBtn;
 	@FXML Button addBtn;
 	@FXML Button updateBtn;
 	@FXML Button imgBtn;
@@ -76,8 +80,9 @@ public class MenuController implements Initializable{
 	}
 	
 	// 조회 버튼
-	@FXML
-	public void selectClick(ActionEvent event) {
+	public void search() {
+		table.getItems().clear();
+		table.setItems(service.selectMenu(keyword.getText()));
 	}
 
 	// 저장 버튼

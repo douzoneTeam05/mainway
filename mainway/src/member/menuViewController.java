@@ -1,17 +1,15 @@
 package member;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
+import common.Opener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class menuViewController implements Initializable {
@@ -20,6 +18,7 @@ public class menuViewController implements Initializable {
 	
 	private menuViewService service;
 	private Parent menuView;
+	private Opener opener;
 	
 	public void setmenuView(Parent menuview) {
 		menuView = menuview;
@@ -53,5 +52,12 @@ public class menuViewController implements Initializable {
 		        }
 		    }
 		});
+	}
+	public void setOpener(Opener opener) {
+		this.opener = opener;
+	}
+	public void setMain(Opener opener) {
+		this.opener = opener;
+		
 	}
 }

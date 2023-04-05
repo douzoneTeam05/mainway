@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.MenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.MemberManageController">
    <top>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +29,7 @@
                         <Image url="@../img/mainwaylogo.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" text="메뉴 관리" textAlignment="CENTER" textFill="#008938" />
+                  <Label alignment="CENTER" text="회원 관리" textAlignment="CENTER" textFill="#008938" />
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="869.0">
                      <children>
                         <TextField />
@@ -99,7 +99,6 @@
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <TextField fx:id="image" prefHeight="27.0" prefWidth="141.0" />
-                              <Button fx:id="imgBtn" mnemonicParsing="false" onAction="#handleSaveFileChooser" text="img" />
                            </children>
                         </HBox>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="그룹명" />
