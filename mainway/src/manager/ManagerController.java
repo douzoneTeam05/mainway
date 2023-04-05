@@ -36,7 +36,25 @@ public class ManagerController implements Initializable{
 	
 	
 	// 통계 관리 버튼(좋아요 기준으로  인기메뉴 뽑아내기, 상세페이지 뷰 카운트 기능 넣으면 조회수 높은 수 뽑을 수 있음, 주문 카운트 넣을 시 주 높은 순도 뽑을 수 있음)
-
+	public void statisticsManage() { 
+		Stage menuStage = new Stage();	
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/statisticsManage.fxml"));
+		Parent statisticsManage = null;
+		try {
+			statisticsManage = loader.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		StatisticsManageController managerCon = loader.getController();
+		managerCon.setMemberManage(statisticsManage);
+		
+		Scene scene = new Scene(statisticsManage);
+		menuStage.setTitle("통계 관리 화면");
+		menuStage.setScene(scene);
+		menuStage.show();
+	}
+	
 
 	
 	// 관리자 메뉴 - 회원 관리 버튼(회원 전체 조회 기능)

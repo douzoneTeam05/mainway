@@ -19,7 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class menuViewController implements Initializable {
+public class menuViewController2 implements Initializable {
    String[] items;
    @FXML private ListView<menuViewDTO> listView;
    @FXML private ImageView imageView;

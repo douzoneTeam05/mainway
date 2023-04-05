@@ -21,7 +21,8 @@ public class MenuService {
 		// 메뉴명 중복 검증 
 		
 		// 메뉴 등록 로직
-		menuDao.regProc(menuDto);		
+		menuDao.regProc(menuDto);	
+		
 	}
 
 	// 메뉴 전체 조회
@@ -30,6 +31,7 @@ public class MenuService {
 		if(menus.isEmpty() == false) {
 			for(MenuDTO menu : menus) {
 				System.out.print(menu.getMenu());
+				System.out.println(menu.getRegDate());
 				System.out.println("데이터 조회 test");
 			}
 		}

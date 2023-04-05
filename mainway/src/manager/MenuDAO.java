@@ -53,7 +53,7 @@ public class MenuDAO {
 			} else {
 				menuDto.setNum(0);
 			}
-			sql = "INSERT INTO menus VALUES(?, ?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO menus VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, menuDto.getNum());
 			ps.setString(2, menuDto.getGroup());
@@ -62,6 +62,7 @@ public class MenuDAO {
 			ps.setString(5, menuDto.getDescription());
 			ps.setString(6, menuDto.getPrice());
 			ps.setString(7, menuDto.getKcal());
+			ps.setString(8, menuDto.getRegDate());
 			ps.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,6 +86,7 @@ public class MenuDAO {
 				menuDto.setDescription(rs.getString("description"));
 				menuDto.setPrice(rs.getString("price"));
 				menuDto.setKcal(rs.getString("kcal"));
+				menuDto.setRegDate(rs.getString("reg_date"));
 				
 				menus.add(menuDto);
 			}
@@ -113,6 +115,7 @@ public class MenuDAO {
 				menuDto.setDescription(rs.getString("description"));
 				menuDto.setPrice(rs.getString("price"));
 				menuDto.setKcal(rs.getString("kcal"));
+				menuDto.setRegDate(rs.getString("reg_date"));
 				
 				menus.add(menuDto);
 			}
@@ -151,6 +154,7 @@ public class MenuDAO {
 				menuDto.setDescription(rs.getString("description"));
 				menuDto.setPrice(rs.getString("price"));
 				menuDto.setKcal(rs.getString("kcal"));
+				menuDto.setRegDate(rs.getString("reg_date"));
 				
 				menus.add(menuDto);
 			}
@@ -163,7 +167,7 @@ public class MenuDAO {
 	
 	// 메뉴 수정(UPDATE)
 	public void update(MenuDTO menuDto) {
-		String sql = "UPDATE menus SET group_name = ?, menu = ?, image = ?, description = ?, price = ?, kcal = ? WHERE menu_num=?";
+		String sql = "UPDATE menus SET group_name = ?, menu = ?, image = ?, description = ?, price = ?, kcal = ?, reg_date  ? WHERE menu_num=?";
 		System.out.println("수정확인");
 		System.out.println(menuDto.getGroup());
 		System.out.println(menuDto.getMenu());
@@ -177,6 +181,7 @@ public class MenuDAO {
 			ps.setString(4, menuDto.getDescription());
 			ps.setString(5, menuDto.getPrice());
 			ps.setString(6, menuDto.getKcal());
+			ps.setString(7, menuDto.getRegDate());
 
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -184,8 +189,6 @@ public class MenuDAO {
 		}
 		
 	}
-	
-	
 	
 	
 

@@ -3,9 +3,8 @@ package member;
 public class menuViewDTO {
 	private String menu_num;
 	private String name;
-	private String explain;
 	private String price;
-	private String calory;
+	private String image;
 	
 	public String getMenu_num() {
 		return menu_num;
@@ -19,23 +18,17 @@ public class menuViewDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getExplain() {
-		return explain;
-	}
-	public void setExplain(String explain) {
-		this.explain = explain;
-	}
 	public String getPrice() {
 		return price;
 	}
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getCalory() {
-		return calory;
+	public String getImage() {
+		return image;
 	}
-	public void setCalory(String calory) {
-		this.calory = calory;
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

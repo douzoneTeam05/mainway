@@ -11,8 +11,9 @@ public class MenuTableWithProperty {
 	private StringProperty description;
 	private StringProperty price;
 	private StringProperty kcal;
+	private StringProperty date;
 	
-	public MenuTableWithProperty(StringProperty num, StringProperty group, StringProperty menu, StringProperty image, StringProperty description, StringProperty price, StringProperty kcal) {
+	public MenuTableWithProperty(StringProperty num, StringProperty group, StringProperty menu, StringProperty image, StringProperty description, StringProperty price, StringProperty kcal, StringProperty date) {
 		this.num = num;
 		this.group = group;
 		this.menu = menu;
@@ -20,9 +21,10 @@ public class MenuTableWithProperty {
 		this.description = description;
 		this.price = price;
 		this.kcal = kcal;
+		this.date = date;
 	}
 	
-	public MenuTableWithProperty(String num, String group, String menu, String image, String description, String price, String kcal) {
+	public MenuTableWithProperty(String num, String group, String menu, String image, String description, String price, String kcal, String date) {
 		this.num.set(num);
 		this.group.set(group);
 		this.menu.set(menu);
@@ -30,6 +32,7 @@ public class MenuTableWithProperty {
 		this.description.set(description);
 		this.price.set(price);
 		this.kcal.set(kcal);
+		this.date.set(date);
 	}
 	
 	public StringProperty numProperty() {
@@ -58,6 +61,10 @@ public class MenuTableWithProperty {
 	
 	public StringProperty kcalProperty() {
 		return kcal;
+	}
+	
+	public StringProperty dateProperty() {
+		return date;
 	}
 	
 	

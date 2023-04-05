@@ -38,10 +38,9 @@ public class menuViewDAO {
 			while(rs.next()) {
 				menuViewDTO menudto = new menuViewDTO();
 				menudto.setMenu_num(String.valueOf(rs.getInt("menu_num")));
-				menudto.setName(rs.getString("name"));
-				menudto.setExplain(rs.getString("explain"));
+				menudto.setName(rs.getString("menu"));
 				menudto.setPrice(String.valueOf(rs.getString("price")));
-				menudto.setCalory(String.valueOf(rs.getString("calory")));
+				menudto.setImage(rs.getString("image"));
 				obList.add(menudto);
 			}
 		} catch (Exception e) {

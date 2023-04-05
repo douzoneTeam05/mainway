@@ -1,6 +1,7 @@
 package member;
 
 import common.CommonService;
+import common.LoginManager;
 
 public class LoginService {
 	private LoginDAO dao;
@@ -23,6 +24,13 @@ public class LoginService {
 		
 		if (dbPw.equals(pw)) { //dbpw와 pw값을 비교
 			dao.loginSuccess(id); //dao의 loginSuccess의 id값을 이용
+			
+			// 로그인 성공 시 로그인 싱글톤 클래스 인스턴스 생성
+			LoginManager loginManager = LoginManager.getInstance();
+			loginManager.setId(id);
+			RegDTO loginMember = LoginManager.regDto(loginManager.getId());
+			System.out.println("getter로 로그인한 회원 가져오기"+loginMember);
+
 			CommonService.msg("로그인 성공");
 		} else { // 아니면
 			CommonService.msg("비밀번호가 다릅니다."); // "아이디 또는 비밀번호가 다릅니다." 알림창 출력

@@ -2,19 +2,20 @@ package manager;
 
 import java.io.File;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import common.CommonService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -25,16 +26,18 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MenuController implements Initializable{
-	@FXML ChoiceBox<String> group;
+	@FXML ComboBox<String> group;
 	@FXML TextField menu;
 	@FXML TextField image;
 	@FXML TextArea description;
 	@FXML TextField price;
 	@FXML TextField kcal;
 	@FXML TextField keyword;
+	@FXML Button saveBtn;
 	@FXML Button searchBtn;
 	@FXML Button addBtn;
 	@FXML Button updateBtn;
+	@FXML Button deleteBtn;
 	@FXML Button imgBtn;
 	@FXML TableView<MenuDTO> table;
 	@FXML TableColumn< MenuDTO, String> numCol;
@@ -44,7 +47,7 @@ public class MenuController implements Initializable{
 	@FXML TableColumn< MenuDTO, String> descriptionCol;
 	@FXML TableColumn< MenuDTO, String> priceCol;
 	@FXML TableColumn< MenuDTO, String> kcalCol;
-//	@FXML TableColumn< MenuDTO, String> dateCol;
+	@FXML TableColumn< MenuDTO, String> dateCol;
 
     
 	private MenuService service;
@@ -58,8 +61,10 @@ public class MenuController implements Initializable{
 	
 	public void setMenuCreate(Parent menuCreate) {
 		MenuCreate = menuCreate;
-		ChoiceBox<String> lv =(ChoiceBox<String>) menuCreate.lookup("#group");
+		ComboBox<String> lv =(ComboBox<String>) menuCreate.lookup("#group");
 		lv.getItems().addAll("샌드위치", "음료");
+		
+		
 	}
 
 	@Override
@@ -75,8 +80,11 @@ public class MenuController implements Initializable{
 		descriptionCol.setCellValueFactory(new PropertyValueFactory("description"));
 		priceCol.setCellValueFactory(new PropertyValueFactory("price"));
 		kcalCol.setCellValueFactory(new PropertyValueFactory("kcal"));
+		dateCol.setCellValueFactory(new PropertyValueFactory("regDate"));
 
+		saveBtn.setDisable(true);
 		setTableView();
+		
 	}
 	
 	// 조회 버튼
@@ -88,6 +96,34 @@ public class MenuController implements Initializable{
 	// 저장 버튼
 	@FXML
 	public void regProc() {
+//		if (group.getValue().isBlank()) {
+//			CommonService.msg("입력오류", "메뉴 그룹을 선택하세요.");
+//			group.requestFocus();
+//			return;
+//		} else 
+		if(menu.getText().isEmpty()) {
+			CommonService.warningMsg("입력 오류", "메뉴를 입력하세요.");
+			menu.requestFocus();
+			return;
+		} else if(image.getText().isEmpty()) {
+			CommonService.warningMsg("입력 오류", "이미지를 선택하세요.");
+			image.requestFocus();
+			return;
+		} else if(description.getText().isEmpty()) {
+			CommonService.warningMsg("입력 오류", "설명을 입력하세요.");
+			description.requestFocus();
+			return;
+		} else if(price.getText().isEmpty()) {
+			CommonService.warningMsg("입력 오류", "가격을 입력하세요.");
+			price.requestFocus();
+			return;
+		} else if(kcal.getText().isEmpty()) {
+			CommonService.warningMsg("입력 오류", "칼로리를 입력하세요.");
+			kcal.requestFocus();
+			return;
+		}
+		
+		
 		MenuDTO menuDto = new MenuDTO();
 		menuDto.setGroup(group.getValue());
 		menuDto.setMenu(menu.getText());
@@ -95,6 +131,12 @@ public class MenuController implements Initializable{
 		menuDto.setDescription(description.getText());
 		menuDto.setPrice(price.getText());
 		menuDto.setKcal(kcal.getText());
+		
+		Date date = new Date(); // 날짜 구하기
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // 날짜 형식
+		String regDate = sdf.format(date);
+		menuDto.setRegDate(regDate);
 		
 		if(status == "update") {			
 			// DB 데이터 수정
@@ -106,11 +148,11 @@ public class MenuController implements Initializable{
 			data.set(idx, menuDto);
 			
 			CommonService.msg("메뉴 수정 완료");	
-			editExit(updateBtn);
+			editExit(addBtn, updateBtn, deleteBtn, saveBtn);
 		} else {
 			service.regPrco(menuDto);
 			CommonService.msg("메뉴 등록 완료");	
-			editExit(addBtn);
+			editExit(addBtn, updateBtn, deleteBtn, saveBtn);
 		}
 		
 		setTableView();
@@ -122,7 +164,7 @@ public class MenuController implements Initializable{
 	@FXML
 	public void addClick(ActionEvent event) {
 		status = "insert";
-		editable(addBtn);
+		editable(addBtn, updateBtn, deleteBtn, saveBtn);
 		
 		// TextField 내용 삭제
 		menu.clear();
@@ -142,7 +184,7 @@ public class MenuController implements Initializable{
 			return;
 		}		
 		status = "update";
-		editable(updateBtn);
+		editable(addBtn, updateBtn, deleteBtn, saveBtn);
 	}
 	
 	
@@ -184,7 +226,8 @@ public class MenuController implements Initializable{
 			image.setText(menuDto.getImage());
 			description.setText(menuDto.getDescription());
 			price.setText(menuDto.getPrice());
-			kcal.setText(menuDto.getKcal());		
+			kcal.setText(menuDto.getKcal());
+
 
 		}
 	}
@@ -200,9 +243,12 @@ public class MenuController implements Initializable{
 	
 	
 	// 편집(등록/수정) 준비
-	private void editable(Button button) {
-		// Button 비활성화
-		button.setDisable(true);
+	private void editable(Button addBtn, Button updateBtn, Button deleteBtn, Button saveBtn) {
+		// 등록, 수정, 삭제 Button 비활성화, 저장 Button 활성화
+		saveBtn.setDisable(false);
+		addBtn.setDisable(true);
+		updateBtn.setDisable(true);
+		deleteBtn.setDisable(true);
 		
 		// TextField 편집 상태로 변경
 		menu.setEditable(true);
@@ -220,9 +266,12 @@ public class MenuController implements Initializable{
 	
 	
 	// 편집(등록/수정) 종료
-	private void editExit(Button button) {
-		// Button 활성화
-		button.setDisable(false);
+	private void editExit(Button addBtn, Button updateBtn, Button deleteBtn, Button saveBtn) {
+		// 등록, 수정, 삭제 Button 활성화, 저장 Button 비활성화
+		saveBtn.setDisable(true);
+		addBtn.setDisable(false);
+		updateBtn.setDisable(false);
+		deleteBtn.setDisable(false);
 		
 		// TextField 편집 불가 상태로 변경
 		menu.setEditable(false);
@@ -243,12 +292,12 @@ public class MenuController implements Initializable{
 	}
 	
 	// 이미지 select 버튼, 이미지 경로 저장
-	public void handleSaveFileChooser(ActionEvent e) {
+	public void handleOpenFileChooser(ActionEvent e) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(
 				new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"),
 				new ExtensionFilter("All Files", "."));
-		File selectedFile = fileChooser.showSaveDialog(imgBtn.getScene().getWindow());
+		File selectedFile = fileChooser.showOpenDialog(imgBtn.getScene().getWindow());
 		if(selectedFile != null) {
 			image.setText(selectedFile.getPath());
 		}

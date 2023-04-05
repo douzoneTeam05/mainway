@@ -3,6 +3,7 @@ package manager;
 import java.util.ArrayList;
 
 import common.CommonService;
+import javafx.collections.ObservableList;
 
 public class ManagerService {	
 	private ManagerDAO dao;
@@ -11,6 +12,7 @@ public class ManagerService {
 		dao = new ManagerDAO();
 	}
 	
+	// 관리자 로그인
 	public void loginProc(String id, String pw) {
 		if(id.isEmpty() || pw.isEmpty()) {
 			CommonService.msg("아이디 또는 비밀번호를 입력하세요.");
@@ -31,13 +33,15 @@ public class ManagerService {
 		}
 	}
 
+	// 관리자 로그인 체크
 	public String loginCheck(String id) {
 		return dao.loginCheck(id);
 	}
 
-	// 매니저 - 매니저 계정 관리
 	
-	// 메뉴 전체 조회
+	// 관리자 페이지 - 관리자 계정 관리
+	
+	// 관리자 전체 조회
 	public ArrayList<ManagerDTO> selectAllList() {
 		ArrayList<ManagerDTO> managers = dao.selectAllList();
 		if(managers.isEmpty() == false) {
@@ -50,22 +54,36 @@ public class ManagerService {
 	}
 
 
-
+	// 관리자 계정 수정
 	public void update(int managerNum, ManagerDTO managerDto) {
-		// TODO Auto-generated method stub
+		managerDto.setManager_num(managerNum);
+		dao.update(managerDto);
 		
 	}
 
+	// 관리자 계정 등록
 	public void regProc(ManagerDTO managerDto) {
-		// TODO Auto-generated method stub
-		
+		dao.regProc(managerDto);		
 	}
 
 
-
-	public void delete(int managerNum) {
-		// TODO Auto-generated method stub
+	// 관리자 계정 삭제
+	public int delete(int managerNum) {
+		int result = dao.delete(managerNum);
+		if(result == 1) {
+			System.out.println("관리자 계정이 삭제되었습니다.");
+		} else {
+			System.out.println("메뉴 삭제 에러. DB를 확인해주세요.");
+		}
+		
+		return result;
 		
 	}
+
+	public ObservableList<ManagerDTO> selectManager(String text) {
+		return dao.selectManager(text);
+	}
+
+
 
 }
