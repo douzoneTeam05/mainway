@@ -2,32 +2,9 @@ package manager;
 
 import java.util.ArrayList;
 
-public class ManagerService {
-//	private ManagerDAO managerDao;
-//	
-//	public ManagerService() {
-//		managerDao = new ManagerDAO();
-//	}
-//
-//	public void loginProc(String adminId, String adminPw) {		
-//		if(adminId.isEmpty()) {
-//			CommonService.msg("아이디를 입력하세요.");
-//		} else if(adminPw.isEmpty()) {
-//			CommonService.msg("비밀번호를 입력하세요.");
-//		}
-//		
-//		if(managerDao.findId(adminId) && managerDao.checkPw(adminId, adminPw)) {
-//			managerDao.loginSuccess(adminId);
-////			CommonService.msg("로그인 성공");
-//		} else {
-//			CommonService.msg("아이디, 비밀번호를 확인해주세요");
-//		}		
-//	}
-//
-//	public String loginCheck(String adminId) {		
-//		return managerDao.loginCheck(adminId);
-//	}
-	
+import common.CommonService;
+
+public class ManagerService {	
 	private ManagerDAO dao;
 	
 	public ManagerService() {
@@ -47,7 +24,7 @@ public class ManagerService {
 		}
 		
 		if(dbPw.equals(pw)) {
-//			CommonService.msg("로그인 성공");
+			CommonService.msg("로그인 성공");
 			dao.loginSuccess(id);
 		}else {
 			CommonService.msg("로그인 실패");

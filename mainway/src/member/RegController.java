@@ -3,7 +3,7 @@ package member;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+import common.CommonService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -68,7 +68,7 @@ public class RegController implements Initializable {
 				}
 				
 				service.regStage(reg);
-				CommonService.windowClose(RegForm);
+				CommonService.windowsClose(RegForm);
 			}
 			
 		} else if (idCheck == 0){

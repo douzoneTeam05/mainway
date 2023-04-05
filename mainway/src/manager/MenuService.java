@@ -57,4 +57,10 @@ public class MenuService {
 		return result;
 	}
 
+
+
+	public ObservableList<MenuDTO> selectMenu(String text) {		
+		return menuDao.selectMenu(text);
+	}
+
 }

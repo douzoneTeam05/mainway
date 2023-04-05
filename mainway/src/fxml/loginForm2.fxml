@@ -52,7 +52,7 @@
       </HBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginProc" prefHeight="70.0" prefWidth="130.0" text="로그인">
+            <Button fx:id="signin" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginProc" prefHeight="70.0" prefWidth="130.0" text="로그인">
                <font>
                   <Font size="25.0" />
                </font>
@@ -66,5 +66,7 @@
             <Button fx:id="regButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#regProc" prefHeight="30.0" prefWidth="120.0" text="회원가입" />
          </children>
       </HBox>
+      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="450.0" />
+      <Button mnemonicParsing="false" onAction="#manageMode" text="manage" />
    </children>
 </VBox>

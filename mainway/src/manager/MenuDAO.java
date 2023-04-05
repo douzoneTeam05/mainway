@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /*
@@ -95,13 +96,13 @@ public class MenuDAO {
 	}
 	
 	// 메뉴명으로 조회(SELECT)
-	public ArrayList<MenuDTO> selectMenu(String menu) {
-		String sql = "SELECT * FROM menus WHERE menu like ?";
-		ArrayList<MenuDTO> menus = new ArrayList<>();
+	public ObservableList<MenuDTO> selectMenu(String menu) {
+		String sql = "SELECT * FROM menus WHERE menu LIKE ?";
+		ObservableList<MenuDTO> menus = FXCollections.observableArrayList();
 		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1,  "%" + menu + "%");
+			ps.setString(1,  "%"+ menu+"%");
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				MenuDTO menuDto = new MenuDTO();
