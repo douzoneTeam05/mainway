@@ -20,6 +20,12 @@ public class MenuListMain extends Application {
 		MenuListController menuCon = loader.getController();
 		menuCon.setPrimaryStage(primaryStage);
 		
+		loader = new FXMLLoader(getClass().getResource("orderListForm.fxml"));
+		Parent orderListForm = loader.load();
+		
+		OrderListController orderListCon = loader.getController();
+		orderListCon.setOrderListForm(orderListForm);
+		
 		Scene scene = new Scene(menuListForm);
 		primaryStage.setTitle("메뉴 선택");
 		primaryStage.setScene(scene);

@@ -20,16 +20,16 @@
             </ImageView>
             <Label text="메뉴 선택">
                <font>
-                  <Font size="24.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
          </children>
       </HBox>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#menuAddProc" prefHeight="100.0" prefWidth="1200.0" text="메뉴 담기" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#menuAddProc" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: yellow;" text="메뉴 담기" BorderPane.alignment="CENTER">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Button>
    </bottom>

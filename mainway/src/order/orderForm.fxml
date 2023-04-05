@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -25,7 +24,7 @@
                   <Insets right="50.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" text="-">
+            <Button mnemonicParsing="false" onAction="#minusAmountProc" text="-">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -38,7 +37,7 @@
                   <Insets left="30.0" right="30.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" text="+">
+            <Button mnemonicParsing="false" onAction="#plusAmountProc" text="+">
                <font>
                   <Font size="14.0" />
                </font>
@@ -47,19 +46,15 @@
       </HBox>
       <VBox layoutX="45.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <CheckBox fx:id="menuName" mnemonicParsing="false" selected="true" text="로스트 치킨">
+            <CheckBox fx:id="menuName" disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" text="로스트 치킨">
                <font>
-                  <Font size="24.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
             </CheckBox>
-            <ImageView fx:id="menuImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Users/allur/OneDrive/바탕%20화면/bread.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="menuImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
       <HBox alignment="CENTER" layoutX="656.0" layoutY="225.0" prefHeight="70.0" prefWidth="400.0">
@@ -79,11 +74,11 @@
             </Label>
          </children>
       </HBox>
-      <VBox layoutX="619.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+      <VBox layoutX="606.0" layoutY="14.0" prefHeight="200.0" prefWidth="300.0">
          <children>
-            <Label text="추가 옵션">
+            <Label text="# 추가 옵션">
                <font>
-                  <Font size="24.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -91,67 +86,67 @@
             </Label>
             <HBox prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Label text="- 토핑 :">
+                  <Label text="-토핑 :">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="아보카도">
+                  <Label fx:id="topingText" lineSpacing="2.0" text="아보카도">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Label text="- 음료 :">
+                  <Label text="-음료 :">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="스프라이트">
+                  <Label fx:id="beverageText" text="스프라이트">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Label text="- 스낵 :">
+                  <Label text="-스낵 :">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="초코칩쿠키">
+                  <Label fx:id="snackText" text="초코칩쿠키">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="856.0" layoutY="14.0" mnemonicParsing="false" onAction="#optionChangeProc" prefHeight="200.0" prefWidth="200.0" text="옵션 변경">
+      <Button layoutX="906.0" layoutY="39.0" mnemonicParsing="false" onAction="#optionChangeProc" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: green;" text="옵션 변경">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <VBox layoutX="298.0" layoutY="14.0" prefHeight="200.0" prefWidth="400.0">
+      <VBox layoutX="332.0" layoutY="14.0" prefHeight="200.0" prefWidth="500.0">
          <children>
-            <Label text="기본 옵션">
+            <Label text="# 기본 옵션">
                <font>
-                  <Font size="24.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -165,15 +160,15 @@
                            <children>
                               <Label text="-빵 길이 :">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="15cm">
+                              <Label fx:id="breadLenText" text="15cm" wrapText="true">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -182,15 +177,15 @@
                            <children>
                               <Label text="-빵 종류 :">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="파마산오레가노">
+                              <Label fx:id="breadText" text="파마산 오레가노" wrapText="true">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -199,15 +194,15 @@
                            <children>
                               <Label text="-치즈 :">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="슈레드">
+                              <Label fx:id="cheeseText" text="슈레드" wrapText="true">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -216,15 +211,15 @@
                            <children>
                               <Label text="-야채 :">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="기본 야채, 할라피뇨 추가">
+                              <Label fx:id="vegetableText" lineSpacing="2.0" text="기본 야채, 할라피뇨 추가" wrapText="true">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -233,15 +228,15 @@
                            <children>
                               <Label text="-소스 :">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="렌치, 스위트 칠리">
+                              <Label fx:id="sauceText" lineSpacing="2.0" text="렌치, 스위트 칠리">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
@@ -253,5 +248,10 @@
          </children>
       </VBox>
       <Line endX="999.0" layoutX="100.0" layoutY="300.0" startX="-101.0" strokeWidth="3.0" />
+      <Label fx:id="orderIndex" alignment="CENTER" layoutX="28.0" layoutY="246.0" opacity="0.0" prefHeight="28.0" prefWidth="32.0" text="1">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

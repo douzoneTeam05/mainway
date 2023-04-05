@@ -2,11 +2,9 @@ package order;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,24 +14,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class SelectOptionController implements Initializable {
-	OrderService service = new OrderService();
-	
-	private Stage primaryStage;
-	
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
+public class UpdateSelectOptionController implements Initializable {
+	private OrderService service;
 	
 	@FXML
     private ImageView menuImg;
@@ -48,90 +37,90 @@ public class SelectOptionController implements Initializable {
     private ImageView breadImg;
 
     @FXML
-    private ToggleGroup breadLenGroup; // 빵 길이 선택 그룹
+    private ToggleGroup breadLenGroup;
 
     @FXML
-    private ToggleGroup breadGroup; // 빵 종류 선택 그룹
+    private ToggleGroup breadGroup;
 
     @FXML
     private ImageView cheeseImg;
 
     @FXML
-    private ToggleGroup cheeseGroup; // 치즈 종류 선택 그룹
+    private ToggleGroup cheeseGroup;
 
     @FXML
     private ImageView vegsauceImg;
 
     @FXML
-    private CheckBox vegetable1; // 양상추
+    private CheckBox vegetable1;
 
     @FXML
-    private CheckBox vegetable2; // 양파
+    private CheckBox vegetable2;
 
     @FXML
-    private CheckBox vegetable3; // 피망
+    private CheckBox vegetable3;
 
     @FXML
-    private CheckBox vegetable4; // 토마토
+    private CheckBox vegetable4;
 
     @FXML
-    private CheckBox vegetable5; // 오이
+    private CheckBox vegetable5;
 
     @FXML
-    private CheckBox vegetable6; // 피클
+    private CheckBox vegetable6;
 
     @FXML
-    private CheckBox vegetable7; // 할라피뇨
+    private CheckBox vegetable7;
 
     @FXML
-    private CheckBox sauce1; // 렌치
+    private CheckBox sauce1;
 
     @FXML
-    private CheckBox sauce2; // 스위트 칠리
+    private CheckBox sauce2;
 
     @FXML
-    private CheckBox sauce3; // 마요네즈
+    private CheckBox sauce3;
 
     @FXML
-    private CheckBox sauce4; // 허니 머스타드
+    private CheckBox sauce4;
 
     @FXML
-    private CheckBox sauce5; // 바베큐
+    private CheckBox sauce5;
 
     @FXML
     private ImageView topingImg;
 
     @FXML
-    private CheckBox toping1; // 미트 추가
+    private CheckBox toping1;
 
     @FXML
-    private CheckBox toping2; // 에그마요
+    private CheckBox toping2;
 
     @FXML
-    private CheckBox toping3; // 베이컨
+    private CheckBox toping3;
 
     @FXML
-    private CheckBox toping4; // 치즈 추가
+    private CheckBox toping4;
 
     @FXML
-    private CheckBox toping5; // 아보카도
+    private CheckBox toping5;
 
     @FXML
     private ImageView beverageImg;
 
     @FXML
-    private ToggleGroup beverageGroup; // 음료 선택 그룹
+    private ToggleGroup beverageGroup;
 
     @FXML
     private ImageView snackImg;
 
     @FXML
-    private ToggleGroup snackGroup; // 스낵 선택 그룹
+    private ToggleGroup snackGroup;
 
     @FXML
     private ImageView logoImg;
     
-	private OrderDTO order;
+    private OrderDTO order;
     
     public void setOrder(OrderDTO order) {
     	this.order = order;
@@ -144,6 +133,7 @@ public class SelectOptionController implements Initializable {
     // 선택한 정보를 orderList로 전달하기 위한 메소드
     public OrderDTO getOrder() {
     	OrderDTO orderItem = new OrderDTO();
+    	orderItem.setId(order.getId());
     	orderItem.setMember_id(order.getMember_id());
     	orderItem.setName(order.getName());
     	orderItem.setImg(order.getImg());
@@ -159,25 +149,25 @@ public class SelectOptionController implements Initializable {
     	RadioButton selectedCheese = (RadioButton)cheeseGroup.getSelectedToggle();
     	orderItem.setCheese(selectedCheese.getText());
     	if(!vegetable1.isSelected()) {
-    		vegetable += "-" + vegetable1.getText() + ", ";
+    		vegetable += "-" + vegetable1.getText() + " ";
     	}
     	if(!vegetable2.isSelected()) {
-    		vegetable += "-" + vegetable2.getText() + ", ";
+    		vegetable += "-" + vegetable2.getText() + " ";
     	}
     	if(!vegetable3.isSelected()) {
-    		vegetable += "-" + vegetable3.getText() + ", ";
+    		vegetable += "-" + vegetable3.getText() + " ";
     	}
     	if(!vegetable4.isSelected()) {
-    		vegetable += "-" + vegetable4.getText() + ", ";
+    		vegetable += "-" + vegetable4.getText() + " ";
     	}
     	if(!vegetable5.isSelected()) {
-    		vegetable += "-" + vegetable5.getText() + ", ";
+    		vegetable += "-" + vegetable5.getText() + " ";
     	}
     	if(vegetable6.isSelected()) {
-    		vegetable += "+" + vegetable6.getText() + ", ";
+    		vegetable += "+" + vegetable6.getText() + " ";
     	}
     	if(vegetable7.isSelected()) {
-    		vegetable += "+" + vegetable7.getText() + ", ";
+    		vegetable += "+" + vegetable7.getText() + " ";
     	}
     	if(vegetable1.isSelected() && vegetable2.isSelected() && vegetable3.isSelected() 
     			&&vegetable4.isSelected() && vegetable5.isSelected() && !vegetable6.isSelected()
@@ -190,20 +180,19 @@ public class SelectOptionController implements Initializable {
     	orderItem.setVegetable(vegetable);
     	
     	if(sauce1.isSelected()) {
-    		sauce += "+" + sauce1.getText() + ", ";
-    		
+    		sauce += "+" + sauce1.getText() + " ";
     	}
     	if(sauce2.isSelected()) {
-    		sauce += "+" + sauce2.getText() + ", ";
+    		sauce += "+" + sauce2.getText() + " ";
     	}
     	if(sauce3.isSelected()) {
-    		sauce += "+" + sauce3.getText() + ", ";
+    		sauce += "+" + sauce3.getText() + " ";
     	}
     	if(sauce4.isSelected()) {
-    		sauce += "+" + sauce4.getText() + ", ";
+    		sauce += "+" + sauce4.getText() + " ";
     	}
     	if(sauce5.isSelected()) {
-    		sauce += "+" + sauce5.getText() + ", ";
+    		sauce += "+" + sauce5.getText() + " ";
     	}
     	if(!sauce1.isSelected() && !sauce2.isSelected() && !sauce3.isSelected() 
     			&&!sauce4.isSelected() && !sauce5.isSelected()) {
@@ -215,19 +204,19 @@ public class SelectOptionController implements Initializable {
     	orderItem.setSauce(sauce);
     	
     	if(toping1.isSelected()) {
-    		toping += "+" + toping1.getText() + ", ";
+    		toping += "+" + toping1.getText() + " ";
     	}
     	if(toping2.isSelected()) {
-    		toping += "+" + toping2.getText() + ", ";
+    		toping += "+" + toping2.getText() + " ";
     	}
     	if(toping3.isSelected()) {
-    		toping += "+" + toping3.getText() + ", ";
+    		toping += "+" + toping3.getText() + " ";
     	}
     	if(toping4.isSelected()) {
-    		toping += "+" + toping4.getText() + ", ";
+    		toping += "+" + toping4.getText() + " ";
     	}
     	if(toping5.isSelected()) {
-    		toping += "+" + toping5.getText() + ", ";
+    		toping += "+" + toping5.getText() + " ";
     	}
     	if(!toping1.isSelected() && !toping2.isSelected() && !toping3.isSelected() 
     			&&!toping4.isSelected() && !toping5.isSelected()) {
@@ -252,20 +241,20 @@ public class SelectOptionController implements Initializable {
     	}
     	return orderItem;
     }
-    
+
     @FXML
     void cancelProc(ActionEvent event) {
     	Stage stage = (Stage)logoImg.getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("menuListForm.fxml"));
-		Parent menuListForm = null;
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("orderListForm.fxml"));
+		Parent orderListForm = null;
 		try {
-			menuListForm = loader.load();
+			orderListForm = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		Scene scene = new Scene(menuListForm);
-		stage.setTitle("메뉴 선택");
+		Scene scene = new Scene(orderListForm);
+		stage.setTitle("주문 하기");
 		stage.setScene(scene);
 		stage.show();
     }
@@ -293,25 +282,32 @@ public class SelectOptionController implements Initializable {
     		alert.show();
     		return;
     	}
-    	service.insertOrder(getOrder());
+    	
+    	service.updateOrder(getOrder());
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("알림");
+		alert.setContentText("옵션 변경 되었습니다.");
+		alert.show();
     	
     	Stage stage = (Stage)logoImg.getScene().getWindow();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("orderListForm.fxml"));
-    	Parent orderListForm = null;
+		Parent orderListForm = null;
 		try {
 			orderListForm = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-			
+		
 		Scene scene = new Scene(orderListForm);
 		stage.setTitle("주문 하기");
 		stage.setScene(scene);
 		stage.show();
     }
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		service = new OrderService();
+		
 		// 각 이미지들 세팅
 		Image image = new Image(getClass().getResourceAsStream("/img/mainwaylogo.png"));
 		logoImg.setImage(image);
@@ -328,5 +324,4 @@ public class SelectOptionController implements Initializable {
 		image = new Image(getClass().getResourceAsStream("/img/snack.png"));
 		snackImg.setImage(image);
 	}
-	
 }

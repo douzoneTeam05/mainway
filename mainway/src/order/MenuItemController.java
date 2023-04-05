@@ -24,7 +24,10 @@ public class MenuItemController implements Initializable {
     private ImageView menuImg;
 
     @FXML
-    private Label MenuName;
+    private Label menuName;
+    
+    @FXML
+    private Label menuExplain;
 
     @FXML
     private Label menuCalory;
@@ -32,10 +35,11 @@ public class MenuItemController implements Initializable {
     @FXML
     private Label menuPrice;
     
-	public void setData(MenuDTO menu, int index) {
+	public void setData(MenuDTO menu) {
 		Image image = new Image(getClass().getResourceAsStream(menu.getImg()));
 		menuImg.setImage(image);
-		MenuName.setText(menu.getName());
+		menuName.setText(menu.getName());
+		menuExplain.setText(menu.getExplain());
 		menuCalory.setText(menu.getCalory() + "Kcal");
     	menuPrice.setText(menu.getPrice() + " 원");
     }
