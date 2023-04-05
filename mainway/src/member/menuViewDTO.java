@@ -7,7 +7,6 @@ public class menuViewDTO {
 	private String price;
 	private String calory;
 	private String image;
-	private String pizza; // 이부분 삭제해주세요!
 	
 	public String getImage() {
 		return image;

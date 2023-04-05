@@ -28,9 +28,13 @@ public class LoginController implements Initializable {
 		service.loginProc(id.getText(), pw.getText());
 		
 		// 메뉴판 불러오기
-		String result = service.loginCheck(id.getText());
-		if(result != null && result.equals("Y")) {
-		opener.mainViewopen();
+		try {
+			String result = service.loginCheck(id.getText());
+			if(result != null && result.equals("Y")) {
+			opener.mainViewopen();
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
