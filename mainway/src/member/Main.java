@@ -1,5 +1,8 @@
 package member;
 
+import java.io.File;
+import java.net.URL;
+
 import common.Opener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +12,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	//로그인 화면 
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/loginForm2.fxml")); //loader의 객체 생성, loginForm을 얻어온다
@@ -29,5 +32,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-	}	
+	}
 }

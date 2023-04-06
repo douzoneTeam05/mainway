@@ -121,6 +121,28 @@ public class menuViewController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
     }
+	
+	// 좋아요 버튼 눌렀을 때 실행할 메서드
+	// 좋아요 화면으로 이동 (by.종원)
+	@FXML
+    void heartProc(ActionEvent event) {
+		Stage stage = (Stage)imageView.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/heart/Heart.fxml"));
+		Parent heartForm = null;
+		try {
+			heartForm = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		MenuListController menuListCon = loader.getController();
+		// menuListCon.setMemberId(); // 로그인한 사용자 아이디 메뉴선택 화면으로 넘겨주기
+		
+		Scene scene = new Scene(heartForm);
+		stage.setTitle("좋아요");
+		stage.setScene(scene);
+		stage.show();
+    }
 }
 	
 //	
