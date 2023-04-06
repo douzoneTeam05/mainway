@@ -143,4 +143,28 @@ public class RegDAO {
 		}
 		return false;
 	}
+
+	// 로그인한 회원 정보 조회 
+	public RegDTO loginMember(String id) {
+		PreparedStatement ps = null;
+		String sql = "SELECT * FROM membership WHERE id = ?";
+		ResultSet rs = null;
+		RegDTO loginMember = new RegDTO();
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				loginMember = new RegDTO();
+				loginMember.setId(rs.getString("id"));
+				loginMember.setUser_name(rs.getString("user_name"));
+				System.out.println(rs.getString("id") +"로그인한 회원 정보 가져오기 Test"+rs.getString("user_name"));
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return loginMember;
+	}
 }

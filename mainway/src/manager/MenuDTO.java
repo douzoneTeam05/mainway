@@ -8,6 +8,7 @@ public class MenuDTO {
 	String description;
 	String price;
 	String kcal;
+	String regDate;
 	
 	public int getNum() {
 		return num;
@@ -51,6 +52,14 @@ public class MenuDTO {
 	public void setKcal(String kcal) {
 		this.kcal = kcal;
 	}
+	
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
 	
 
 

@@ -1,10 +1,12 @@
 package member;
 
 import javafx.collections.ObservableList;
+import manager.MenuDAO;
+import manager.MenuDTO;
 
 public class menuViewService {
-	public ObservableList<menuViewDTO> menuViewStage() {
-		menuViewDAO menudao = new menuViewDAO();
+	public ObservableList<MenuDTO> menuViewStage() {
+		MenuDAO menudao = new MenuDAO();
 		return menudao.menuViewStage();
 	}
 }

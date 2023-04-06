@@ -40,12 +40,12 @@
                         <Font name="System Font" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="통계 관리" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#statisticsManage" prefHeight="70.0" prefWidth="321.0" text="통계 관리" textAlignment="CENTER">
                      <font>
                         <Font name="System Font" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="321.0" text="회원 관리" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#memberManage" prefHeight="70.0" prefWidth="321.0" text="회원 관리" textAlignment="CENTER">
                      <font>
                         <Font name="System Font" size="18.0" />
                      </font></Button>

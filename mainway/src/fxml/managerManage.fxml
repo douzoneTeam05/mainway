@@ -27,11 +27,11 @@
                         <Image url="@../img/mainwaylogo.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" text="관리자 관리" textAlignment="CENTER" textFill="#008938" />
+                  <Label alignment="CENTER" text="관리자 계정 관리" textAlignment="CENTER" textFill="#008938" />
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="869.0">
                      <children>
-                        <TextField />
-                        <Button fx:id="selectBtn" mnemonicParsing="false" onAction="#selectClick" text="조회" />
+                        <TextField fx:id="keyword" />
+                        <Button fx:id="searchBtn" mnemonicParsing="false" text="조회" />
                      </children>
                   </HBox>
                </children>
@@ -94,14 +94,14 @@
                            </children>
                         </HBox>
                         <Label text="패스워드" GridPane.rowIndex="2" />
-                        <TextField fx:id="pw" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="pw" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#regProc" prefHeight="27.0" prefWidth="120.0" text="저장" />
+                  <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#regProc" prefHeight="27.0" prefWidth="120.0" text="저장" />
                </children>
             </VBox>
          </children>
