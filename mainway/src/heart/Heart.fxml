@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.image.Image?>
@@ -165,5 +166,10 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="Refresh" layoutX="949.0" layoutY="42.0" mnemonicParsing="false" onAction="#selectmenu" prefHeight="43.0" prefWidth="101.0" text="Refresh">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

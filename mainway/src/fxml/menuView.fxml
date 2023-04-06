@@ -17,7 +17,7 @@
       </Label>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" text="주문하기" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#orderProc" text="주문하기" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
       <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="250.0" BorderPane.alignment="CENTER" />

@@ -143,6 +143,7 @@ public class MenuController implements Initializable{
 		String imgPath = image.getText();
 		System.out.println(imgPath);
 		
+		
 		if(status == "update") {			
 			// DB 데이터 수정
 			int menuNum = table.getSelectionModel().getSelectedItem().getNum();	
