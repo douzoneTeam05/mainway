@@ -132,11 +132,16 @@ public class MenuController implements Initializable{
 		menuDto.setPrice(price.getText());
 		menuDto.setKcal(kcal.getText());
 		
-		Date date = new Date(); // 날짜 구하기
+		// 날짜 데이터 넣기
+		Date date = new Date(); 
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // 날짜 형식
 		String regDate = sdf.format(date);
 		menuDto.setRegDate(regDate);
+		
+		// 이미지 경로 변경
+		String imgPath = image.getText();
+		System.out.println(imgPath);
 		
 		if(status == "update") {			
 			// DB 데이터 수정

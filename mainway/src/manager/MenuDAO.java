@@ -189,6 +189,30 @@ public class MenuDAO {
 		}
 		
 	}
+
+	public ObservableList<MenuDTO> menuViewStage() {
+		ObservableList<MenuDTO> obList = FXCollections.observableArrayList();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM menus";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				MenuDTO menudto = new MenuDTO();
+				menudto.setNum(rs.getInt("menu_num"));
+				menudto.setMenu(rs.getString("menu"));
+				menudto.setPrice(String.valueOf(rs.getString("price")));
+				menudto.setImage(rs.getString("image"));
+				
+				obList.add(menudto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return obList;
+	}
 	
 	
 
