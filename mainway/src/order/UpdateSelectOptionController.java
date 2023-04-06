@@ -149,25 +149,25 @@ public class UpdateSelectOptionController implements Initializable {
     	RadioButton selectedCheese = (RadioButton)cheeseGroup.getSelectedToggle();
     	orderItem.setCheese(selectedCheese.getText());
     	if(!vegetable1.isSelected()) {
-    		vegetable += "-" + vegetable1.getText() + " ";
+    		vegetable += "-" + vegetable1.getText() + ", ";
     	}
     	if(!vegetable2.isSelected()) {
-    		vegetable += "-" + vegetable2.getText() + " ";
+    		vegetable += "-" + vegetable2.getText() + ", ";
     	}
     	if(!vegetable3.isSelected()) {
-    		vegetable += "-" + vegetable3.getText() + " ";
+    		vegetable += "-" + vegetable3.getText() + ", ";
     	}
     	if(!vegetable4.isSelected()) {
-    		vegetable += "-" + vegetable4.getText() + " ";
+    		vegetable += "-" + vegetable4.getText() + ", ";
     	}
     	if(!vegetable5.isSelected()) {
-    		vegetable += "-" + vegetable5.getText() + " ";
+    		vegetable += "-" + vegetable5.getText() + ", ";
     	}
     	if(vegetable6.isSelected()) {
-    		vegetable += "+" + vegetable6.getText() + " ";
+    		vegetable += "+" + vegetable6.getText() + ", ";
     	}
     	if(vegetable7.isSelected()) {
-    		vegetable += "+" + vegetable7.getText() + " ";
+    		vegetable += "+" + vegetable7.getText() + ", ";
     	}
     	if(vegetable1.isSelected() && vegetable2.isSelected() && vegetable3.isSelected() 
     			&&vegetable4.isSelected() && vegetable5.isSelected() && !vegetable6.isSelected()
@@ -180,19 +180,19 @@ public class UpdateSelectOptionController implements Initializable {
     	orderItem.setVegetable(vegetable);
     	
     	if(sauce1.isSelected()) {
-    		sauce += "+" + sauce1.getText() + " ";
+    		sauce += "+" + sauce1.getText() + ", ";
     	}
     	if(sauce2.isSelected()) {
-    		sauce += "+" + sauce2.getText() + " ";
+    		sauce += "+" + sauce2.getText() + ", ";
     	}
     	if(sauce3.isSelected()) {
-    		sauce += "+" + sauce3.getText() + " ";
+    		sauce += "+" + sauce3.getText() + ", ";
     	}
     	if(sauce4.isSelected()) {
-    		sauce += "+" + sauce4.getText() + " ";
+    		sauce += "+" + sauce4.getText() + ", ";
     	}
     	if(sauce5.isSelected()) {
-    		sauce += "+" + sauce5.getText() + " ";
+    		sauce += "+" + sauce5.getText() + ", ";
     	}
     	if(!sauce1.isSelected() && !sauce2.isSelected() && !sauce3.isSelected() 
     			&&!sauce4.isSelected() && !sauce5.isSelected()) {
@@ -204,19 +204,19 @@ public class UpdateSelectOptionController implements Initializable {
     	orderItem.setSauce(sauce);
     	
     	if(toping1.isSelected()) {
-    		toping += "+" + toping1.getText() + " ";
+    		toping += "+" + toping1.getText() + ", ";
     	}
     	if(toping2.isSelected()) {
-    		toping += "+" + toping2.getText() + " ";
+    		toping += "+" + toping2.getText() + ", ";
     	}
     	if(toping3.isSelected()) {
-    		toping += "+" + toping3.getText() + " ";
+    		toping += "+" + toping3.getText() + ", ";
     	}
     	if(toping4.isSelected()) {
-    		toping += "+" + toping4.getText() + " ";
+    		toping += "+" + toping4.getText() + ", ";
     	}
     	if(toping5.isSelected()) {
-    		toping += "+" + toping5.getText() + " ";
+    		toping += "+" + toping5.getText() + ", ";
     	}
     	if(!toping1.isSelected() && !toping2.isSelected() && !toping3.isSelected() 
     			&&!toping4.isSelected() && !toping5.isSelected()) {

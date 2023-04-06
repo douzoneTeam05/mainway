@@ -28,6 +28,12 @@ public class MenuListController implements Initializable {
 		this.primaryStage = primaryStage;
 	}
 	
+	private String memberId;
+	
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	
 	@FXML
     private ImageView logoImg;
 	
@@ -59,7 +65,7 @@ public class MenuListController implements Initializable {
 		int index = listLayout.getSelectionModel().getSelectedIndex();
 		OrderDTO order = new OrderDTO();
 		// index 값으로 선택 메뉴 정보 가져와서 menu에 저장
-		order.setMember_id("admin"); // 로그인한 회원 아이디
+		order.setMember_id("admin"); // 로그인한 회원 아이디 (가져와야 하는데 어떻게 가져오지..)
 		order.setImg(basicMenus.get(index).getImg());
 		order.setName(basicMenus.get(index).getName());
 		order.setExplain(basicMenus.get(index).getExplain());
