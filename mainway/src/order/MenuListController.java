@@ -41,6 +41,23 @@ public class MenuListController implements Initializable {
     private ListView<AnchorPane> listLayout;
 	
 	@FXML
+    void goPreviousProc(ActionEvent event) {
+		Stage stage = (Stage)logoImg.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menuView.fxml"));
+		Parent menuViewForm = null;
+		try {
+			menuViewForm = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Scene scene = new Scene(menuViewForm);
+		stage.setTitle("");
+		stage.setScene(scene);
+		stage.show();
+    }
+	
+	@FXML
     void menuAddProc(ActionEvent event) {
 		// 리스트 뷰 선택한 것이 있을 때 옵션 선택 화면으로 이동
 		if(listLayout.getSelectionModel().getSelectedItem() == null) {

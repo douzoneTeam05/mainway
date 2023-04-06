@@ -26,14 +26,23 @@
          </children>
       </HBox>
    </top>
-   <bottom>
-      <Button mnemonicParsing="false" onAction="#menuAddProc" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: yellow;" text="메뉴 담기" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Button>
-   </bottom>
    <center>
       <ListView fx:id="listLayout" prefHeight="600.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
    </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goPreviousProc" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: yellow;" text="이전 화면">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#menuAddProc" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: green;" text="메뉴 담기">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
