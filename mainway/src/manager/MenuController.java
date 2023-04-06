@@ -142,7 +142,19 @@ public class MenuController implements Initializable{
 		// 이미지 경로 변경
 		String imgPath = image.getText();
 		System.out.println(imgPath);
+
+		String[] strArr = imgPath.split("\\/");
+		imgPath = "/img/" + strArr[8];
 		
+		menuDto.setImage(imgPath);
+		
+//		System.out.println("==============");
+//		for(int i = 0; i < strArr.length; i++) {
+//			System.out.println(strArr[i]);
+//		}
+//		System.out.println(imgPath);
+		
+
 		
 		if(status == "update") {			
 			// DB 데이터 수정
