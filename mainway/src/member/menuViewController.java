@@ -19,41 +19,32 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import order.MenuListController;
-//<<<<<<< HEAD
 import manager.MenuDTO;
 
 public class menuViewController implements Initializable {
    @FXML private ListView<MenuDTO> listView; 
    @FXML private ImageView imageView;
    ObservableList<MenuDTO> menu = FXCollections.observableArrayList();
-	private Opener opener;
-   
+   private Opener opener;
    private menuViewService service;
    private Parent menuView;
    
    public void setmenuView(Parent menuview) {
       menuView = menuview;
    }
+   
    @Override
    public void initialize(URL location, ResourceBundle resources) {
       service = new menuViewService();
       setListViewTest();
-//      listView.getSelectionModel().selectedIndexProperty().addListener((obj, oldv, newv) -> {
-//    	  System.out.println("선택값:"+ menu.get((int)newv).getImage());
-//    	  Image image = new Image(getClass().getResourceAsStream(menu.get((int)newv).getImage()));
-//          imageView.setImage(image);
-//      });
-      //setListView();
-      
-      listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-          //avoid exception when nothing is selected as pointed out by @kleopatra
-          if (newValue != null) { 
-        	  System.out.println(newValue.getImage());
-              //set text to your label
-//        	  Image image = new Image(getClass().getResourceAsStream());
-//              imageView.setImage(image);
-          }
+      listView.getSelectionModel().selectedIndexProperty().addListener((obj, oldv, newv) -> {
+    	  System.out.println("선택값:"+ menu.get((int)newv).getImage());
+    	  Image image = new Image(getClass().getResourceAsStream(menu.get((int)newv).getImage()));
+          imageView.setImage(image);
       });
+      setListView();
+      
+
       
       
    }
