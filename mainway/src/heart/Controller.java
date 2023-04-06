@@ -1,6 +1,9 @@
 package heart;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -12,13 +15,13 @@ import javafx.scene.control.RadioButton;
 //Controller 라는 클래스를 만들어서 scene builder에서 작성한 UI와 연결한다
 //여기서 scene builder에서 설정한 event(마우스로 클릭할 때 발생하는 것)를 정의해야 한다
 
-
 public class Controller  implements Initializable{
+	
     //Controller 클래스는 Initializable interface를 상속한다 (intends는 class를 상속받을 때 사용)
 	//interface는 class가 아니다 그러나 다중상속이 가능하기 때문에 사용한다 (implements를 사용)
 	//Initializable은 내제된 interface이다 추상 method이기 때문에 @Override로 재정의 해줘야한다
 	private Service service;
-	private Heartdto heart= new Heartdto();
+	private Heartdto heart;
 	
 	//자료형을 지정해주면서 변수 선언 ex)int a
 
@@ -29,6 +32,11 @@ public class Controller  implements Initializable{
 	//이미 이클립스에 내장되어 있어서 인터페이스로 내장된 함수를 불러와서 재정의(Override)해주면 그냥 쓸 수 있음
 		service = new Service();
 	//함수를 재정의 해주는 게 Override인데 구체화 해준다는 의미이다(구현한다)
+		heart = new Heartdto();
+		heart.setM_number(1);
+		
+		
+	
 	}
 	
 	
@@ -62,7 +70,77 @@ public class Controller  implements Initializable{
 	    @FXML
 	    private RadioButton button10;
 
+	    @FXML
+	    private Button Refresh;
 
+	    
+	    
+    
+    
+    @FXML
+    void selectmenu(ActionEvent event) {
+    	System.out.println("메뉴번호 불러옴");
+    	ArrayList<Long> menu_nums = service.selectmenu(heart);
+    	HashMap<Long, String> hs = new HashMap<>();
+    	for(int i = 0; i < menu_nums.size(); i++) {
+    		heart.setMenu_number(menu_nums.get(i));
+    		hs.put(menu_nums.get(i), service.selectyes(heart));
+    	}
+    	System.out.println(hs);
+    	
+    	
+    	for(Entry<Long, String> entry : hs.entrySet()) {
+    		if(entry.getValue().equals("yes")) {
+    			if(entry.getKey() == 1) {
+    				button1.setSelected(true);
+    			}
+    			
+    			if(entry.getKey() == 2) {
+    				button2.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 3) {
+    				button3.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 4) {
+    				button4.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 5) {
+    				button5.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 6) {
+    				button6.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 7) {
+    				button7.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 8) {
+    				button8.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 9) {
+    				button9.setSelected(true);
+    			} 
+    			
+    			if(entry.getKey() == 10) {
+    				button10.setSelected(true);
+    			}
+    		}
+    	}
+    	
+    	
+    	
+  	   
+    }
+    
+
+   
+	       
     @FXML
     void insertHeart1(ActionEvent event) {
     	System.out.println("1번 선택");
@@ -112,7 +190,7 @@ public class Controller  implements Initializable{
     void insertHeart4(ActionEvent event) {
     	System.out.println("4번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(2);
+		heart.setM_number(1);
 		heart.setMenu_number(4);  		
 		if(button4.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -127,7 +205,7 @@ public class Controller  implements Initializable{
     void insertHeart5(ActionEvent event) {
     	System.out.println("5번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(2);
+		heart.setM_number(1);
 		heart.setMenu_number(5);   		
 		if(button5.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -142,7 +220,7 @@ public class Controller  implements Initializable{
     void insertHeart6(ActionEvent event) {
     	System.out.println("6번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(2);
+		heart.setM_number(1);
 		heart.setMenu_number(6);   		
 		if(button6.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -157,7 +235,7 @@ public class Controller  implements Initializable{
     void insertHeart7(ActionEvent event) {
     	System.out.println("7번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(3);
+		heart.setM_number(1);
 		heart.setMenu_number(7);   		
 		if(button7.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -172,7 +250,7 @@ public class Controller  implements Initializable{
     void insertHeart8(ActionEvent event) {
     	System.out.println("8번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(3);
+		heart.setM_number(1);
 		heart.setMenu_number(8);   		
 		if(button8.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -187,7 +265,7 @@ public class Controller  implements Initializable{
     void insertHeart9(ActionEvent event) {
     	System.out.println("9번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(3);
+		heart.setM_number(1);
 		heart.setMenu_number(9);   		
 		if(button9.isSelected()) { 
     		service.insertHeart(heart);    		
@@ -202,7 +280,7 @@ public class Controller  implements Initializable{
     void insertHeart10(ActionEvent event) {
     	System.out.println("10번 선택");
     	heart.setYes_no("yes"); // yes인경우
-		heart.setM_number(3);
+		heart.setM_number(1);
 		heart.setMenu_number(10);   		
 		if(button10.isSelected()) { 
     		service.insertHeart(heart);    		
